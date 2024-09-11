@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GIS education by M.HosseinZarei </title>
+	<meta charset="UTF-8">
+	<meta name="description" content="GIS Template">
+	<meta name="keywords" content="event, GIS, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- header section -->
+	<header class="header-section">
+		<div class="container">
+			<!-- logo -->
+			<a href="{% url 'index' %}" class="site-logo"><img src="{% static 'img/logo.png' %}" alt=""></a>
+			<div class="nav-switch">
+				<i class="fa fa-bars"></i>
+			</div>
+			<div class="header-info">
+				<div class="hf-item">
+					<i class="fa fa-clock-o"></i>
+					<p><span>Working time:</span>Saturday - Wednesday: 08 AM - 02 PM</p>
+				</div>
+				<div class="hf-item">
+					<i class="fa fa-map-marker"></i>
+					<p><span>Find Me:</span>Tehran Province, Kargar shomali street, College of engineering</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header section end-->
+
+
+	<!-- Header section  -->
+	<nav class="nav-section">
+		<div class="container">
+			<div class="nav-right">
+
+				<form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="POST">
+					{% csrf_token %}
+					<input class="form-control mr-sm-2" type="search" placeholder="Search Courses" aria-label="Search" name="searched"> 
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+					<!--<a href="{% url 'search' %}"><i class="fa fa-search"></i></a> -->
+					<a href="{% url 'logout' %}"><i class="ti-power-off"></i>Log out</a>
+				</form>
+
+
+			</div>       
+
+			<ul class="main-menu">
+
+			{% if show_admin_tab %}
+					<li class="active">><a href="{% url 'chart' %}">Hello Admin!</a></li> 
+			{% endif %}
+
+			    <li><a href="{% url 'index' %}">Home</a></li>  
+				<li><a href="{% url 'courses' %}">courses</a></li>
+				<li><a href="{% url 'map' %}">Map</a></li>
+
+			</ul>
+		
+		</div>
+	</nav>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="{% static 'img/hero-slider/1.jpg' %}">
+				<div class="hs-text">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="hs-subtitle">You learn Theoretical concepts of GIS Here</div>
+								<h2 class="hs-title">see courses and events</h2>
+								<p class="hs-des">Education is not just about going to university and getting a degree. It's about widening your<br> knowledge and absorbing the truth about life. Knowledge is power.</p>					
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hs-item set-bg" data-setbg="{% static 'img/hero-slider/2.jpg' %}">
+				<div class="hs-text">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="hs-subtitle">You learn Theoretical concepts of GIS Here</div>
+								<h2 class="hs-title">see courses and events</h2>
+								<p class="hs-des">Education is not just about going to university and getting a degree. It's about widening your<br> knowledge and absorbing the truth about life. Knowledge is power.</p>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Counter section  -->
+	<section class="counter-section">
+		<div class="container">
+			<div class="row">
+			</div>
+		</div>
+	</section>
+	<!-- Counter section end -->
+
+
+	<!-- Courses section -->
+	<section class="courses-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>THE COURSES</h3>
+				<p>The courses that you have to pass in fall 2023</p>
+			</div>
+			<div class="row">
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+
+						<img src="{% static 'img/course/1.png' %}" alt="">
+
+						<div class="course-cat">
+							<span>WeNet</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 8 Dec 2023</div>
+						<h4>Introduce of web and Network concepts</h4>
+				
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+
+						<img src="{% static 'img/course/2.png' %}" alt="">
+
+						<div class="course-cat">
+							<span>Theoretical concepts</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 10 Dec 2023</div>
+						<h4>Theoretical concepts of Geographic information systems</h4>
+						
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+
+						<img src="{% static 'img/course/3.png' %}" alt="">
+
+						<div class="course-cat">
+							<span>Algorithms</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 15 Dec 2023</div>
+						<h4>Spatial Data Structures and Algorithms</h4>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Courses section end-->
+
+
+	<!-- Fact section -->
+	<section class="fact-section spad set-bg" data-setbg="{% static 'img/fact-bg.jpg' %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-crown"></i>
+					</div>
+					<div class="fact-text">
+						<h2>{{ total_years }}</h2>
+						<p>YEARS</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-briefcase"></i>
+					</div>
+					<div class="fact-text">
+						<h2>{{ total_courses }}</h2>
+						<p>COURSES</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-user"></i>
+					</div>
+					<div class="fact-text">
+						<h2>{{ total_students }}</h2>
+						<p>STUDENTS</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-pencil-alt"></i>
+					</div>
+					<div class="fact-text">
+						<h2>{{ total_projects }}</h2>
+						<p>PROJECTS</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Fact section end-->
+
+
+	<!-- Event section -->
+	<section class="event-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>THE EVENTS</h3> 
+				<p>We have the following events that coming up this week</p>  <br><br>
+			</div>
+			<div class="row">
+				<div class="col-md-6 event-item">
+					<div class="event-thumb">
+						<img src="{% static 'img/event/1.jpg' %}" alt="">
+						<div class="event-date">
+							<span>19 Dec 2023</span>
+						</div>
+					</div>
+					<div class="event-info">
+						<h4>Algorithm Exam</h4>
+						<p><i class="fa fa-calendar-o"></i> 08:00 AM - 10:00 AM <i class="fa fa-map-marker"></i>  School of surveying Engineering , Class 1</p>
+					</div>
+				</div>
+				<div class="col-md-6 event-item">
+					<div class="event-thumb">
+						<img src="{% static 'img/event/2.jpg' %}" alt="">
+						<div class="event-date">
+							<span>26 Dec 2023</span>
+						</div>
+					</div>
+					<div class="event-info">
+						<h4>WeNet project Number 743</h4>
+						<p><i class="fa fa-calendar-o"></i> 12:00 PM <i class="fa fa-map-marker"></i> Upload in GitHub</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Event section end -->
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container footer-top">
+			<div class="row">
+				<!-- widget -->
+				<div class="col-sm-6 col-lg-3 footer-widget">
+					<div class="about-widget">
+						<img src="{% static 'img/logo-light.png' %}" alt="">
+						<p>This website is designed for students to familiarize themselves with the courses and related information</p>
+						<div class="social pt-1">
+							<a href=""><i class="fa fa-twitter-square"></i></a>
+							<a href=""><i class="fa fa-facebook-square"></i></a>
+							<a href=""><i class="fa fa-google-plus-square"></i></a>
+							<a href=""><i class="fa fa-linkedin-square"></i></a>
+							<a href=""><i class="fa fa-rss-square"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- widget -->
+				<div class="col-sm-6 col-lg-3 footer-widget">
+					<h6 class="fw-title">USEFUL LINK</h6>
+					<div class="dobule-link">
+						<ul>
+							<li><a href="">Home</a></li>
+							<li><a href="">About us</a></li>
+							<li><a href="">Services</a></li>
+							<li><a href="">Events</a></li>
+							<li><a href="">Features</a></li>
+						</ul>
+						<ul>
+							<li><a href="">Policy</a></li>
+							<li><a href="">Term</a></li>
+							<li><a href="">Help</a></li>
+							<li><a href="">FAQs</a></li>
+							<li><a href="">Site map</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- widget -->
+				<div class="col-sm-6 col-lg-3 footer-widget">
+					<h6 class="fw-title">RECENT POST</h6>
+					<ul class="recent-post">
+						<li>
+							<p>result of project correction</p>
+							<span><i class="fa fa-clock-o"></i>8 Dec 2023</span>
+						</li>
+						<li>
+							<p>Algorithm Exam</p>
+							<span><i class="fa fa-clock-o"></i>8 Dec 2023</span>
+						</li>
+					</ul>
+				</div>
+				<!-- widget -->
+				<div class="col-sm-6 col-lg-3 footer-widget">
+					<h6 class="fw-title">CONTACT</h6>
+					<ul class="contact">
+						<li><p><i class="fa fa-map-marker"></i> Tehran Province, Kargar shomali street, College of engineering</p></li>
+						<li><p><i class="fa fa-phone"></i> (+98) 901 960 2216</p></li>
+						<li><p><i class="fa fa-envelope"></i> M.HosseinZarei@ut.ac.ir</p></li>
+						<li><p><i class="fa fa-clock-o"></i> Saturday-Wednesday: 08 AM-02 PM</p></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- Footer section end-->
+
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.countdown.js' %}"></script>
+	<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	
+</body>
+</html>

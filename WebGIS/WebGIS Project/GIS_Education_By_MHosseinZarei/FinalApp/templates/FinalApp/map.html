@@ -1,0 +1,71 @@
+{% extends 'FinalApp/base.html' %}
+{% block content %}
+{% load leaflet_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="https://unpkg.com/leaflet-image/leaflet-image.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link rel="stylesheet" href="{% static 'css/map.css' %}"/>
+    
+</head>
+<body>
+    <div id="map"></div>
+    <div class="layer-control-box">
+        <label><input type="checkbox" id="layer-empty" checked>   Empty Map</label><br>
+        <label><input type="checkbox" id="layer-area">   Area Map</label><br>
+        <label><input type="checkbox" id="layer-pois">   POIs Map</label>
+    </div>
+    <div class="error-message" id="error-message">
+        Course not found
+    </div>
+
+    <div id="thank-you-message" class="thank-you-message">
+        Thanks for Your participation
+    </div>
+
+    
+    <div>
+
+        <form id="poi-form">
+            <h2>Share your Favorites</h2>
+            <label for="poi-name">Name:</label>
+            <input type="text" id="poi-name" name="name">
+            
+            <label for="add-marker-checkbox">
+                <input type="checkbox" id="add-marker-checkbox"> Add Marker
+            </label>
+            
+            <input type="hidden" id="poi-lat" name="lat">
+            <input type="hidden" id="poi-lng" name="lng">
+            
+            <button type="button" onclick="submitPOI()">Share</button>
+
+        </form>
+        
+    </div>
+
+    <div class="download-button" onclick="downloadMap()">Download PNG</div>
+    <div class="shapefile-button" onclick="downloadShapefile()">Download Shapefile</div>
+
+    <div<button class="NearestCourse-button" type="button" id="nearest-course-btn" onclick="nearestCourse()">Nearest Course</button></div>
+    <script>
+        var geojson_data = {{ geojson_data|safe }};
+        var geojson_data1 = {{ geojson_data1|safe }};
+        var exportUrl = "{% url 'export-poi-shapefile' %}";
+        var csrfToken = '{{ csrf_token }}';
+        var addPoiUrl = '{% url "add_user_poi" %}';
+
+    </script>
+    <script src="{% static 'js/map.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}

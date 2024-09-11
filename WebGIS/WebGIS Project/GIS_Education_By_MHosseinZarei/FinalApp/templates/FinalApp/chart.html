@@ -1,0 +1,115 @@
+<!-- chart.html -->
+
+{% extends 'FinalApp/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+     body {
+    background-color: #e4e7d4;
+}
+    .chart-container {
+        display: inline-block;
+        width: 45%;
+        margin: 10px;
+        align-items: center;
+        margin-left: 50px; 
+        margin-top: 60px;
+    }
+
+    .chart-title {
+        font-size: 30px;
+        font-weight: bold;
+        color: #2b227c;
+        text-align: center;
+        margin-bottom: 50px; 
+
+
+   
+    }
+
+    @media only screen and (max-width: 768px) {
+        .chart-container {
+            width: 100%;
+        }
+    }
+
+    .chart-container:nth-child(2n) {
+        align-self: flex-end;
+    }
+
+    .chart-container canvas {
+        height: 300px;
+        /* Add a border-radius for a rounded appearance */
+        border-radius: 10px;
+        /* Add a box-shadow for a shadow effect */
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+</head>
+<body>
+    <div class="chart-container">
+        <h2 class="chart-title">Bar chart for display participants</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Bar chart for display student scores</h2>
+        <canvas id="barChart2"></canvas>
+    </div>
+
+    <script>
+        var barCtx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: {{ course_label|safe }},
+                datasets: [{
+                    label: 'participants',
+                    data: {{ course_data|safe }},
+                    backgroundColor: 'rgba(2, 0, 49, 0.9)',
+                    borderColor: 'rgba(2, 0, 49, 0.7)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var barCtx2 = document.getElementById('barChart2').getContext('2d');
+        var barChart2 = new Chart(barCtx2, {
+            type: 'bar',
+            data: {
+                labels: {{ student_label|safe }},
+                datasets: [{
+                    label: 'student scores',
+                    data: {{ student_data|safe }},
+                    backgroundColor: 'rgba(245, 91, 3, 0.9)',
+                    borderColor: 'rgb(2, 0, 49)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

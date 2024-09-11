@@ -1,0 +1,76 @@
+{% extends 'FinalApp/base.html' %} 
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    background-image: url('{% static "img/course/7.jpg" %}');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+
+}
+
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px; 
+    }
+
+    th, td {
+        border: 1px solid #bba8c0;
+        text-align: center;
+        padding: 16px;
+        font-size: 22px;
+        
+        
+    }
+
+    th {
+        background-color: #f2f2f2; 
+    }
+    p  {
+      font-size: 23px;
+      text-align: center;
+      color: #2b227c ;
+      margin-top: 40px;
+      font-weight: bold;
+
+    }
+    h2  {
+      font-size: 35px;
+      text-align: center;
+      color:#f55b03;
+      margin-top: 20px;
+    }
+</style>
+
+<h2>Search Results for Courses: '{{ searched }}'</h2>
+
+{% if courses %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.title }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.start_date|date:"M. d, Y" }}</td>
+                    <td>{{ course.end_date|date:"M. d, Y" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>!! Make sure you entered the course name correctly.This course is not currently offered !!</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,168 @@
+        #map {
+            height: 650px;
+        }
+        .legend {
+            line-height: 18px;
+            color: #555;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            display: none; 
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        .layer-control-box {
+            position: absolute;
+            width: 200px;
+            top: 100px;
+            right: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .layer-control-box input {
+            margin: 5px 0;
+            margin-bottom: 15px;
+        }
+
+
+
+        .error-message {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            transition: opacity 2s ease-in-out;
+        }
+
+
+        .download-button, .shapefile-button , .NearestCourse-button{
+            position: absolute;
+            top: 265px;
+            text-align: center;
+            right: 10px;
+            width: 200px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            margin-right: 10px;
+            margin-bottom: 15px; 
+            font-size: 16px;
+
+
+        }
+        .shapefile-button {
+            top: 325px;
+        }
+        .NearestCourse-button {
+            top: 385px;
+            
+        }
+
+
+        
+#poi-form {
+    position: absolute;
+    top: 440px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px;
+    height: 250px;
+
+    margin-right: 10px;
+    margin-bottom: 20px;
+
+
+}
+
+#poi-form h2 {
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#poi-form label {
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 30px;
+    
+    
+}
+
+/* #poi-form input[type="text"], */
+/* #poi-form input[type="checkbox"], */
+#poi-form button {
+    display: block;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#poi-form input[type="text"] {
+    display: inline-block;
+    width: calc(100% - 70px);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#poi-form input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#poi-form button {
+    width: 100%;
+    padding: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#poi-form button:hover {
+    background-color: #0056b3;
+}
+
+
+.thank-you-message {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+}
